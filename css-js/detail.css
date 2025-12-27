@@ -99,6 +99,7 @@
         text-align: left;
         width: 100%;
         max-width: 36.625rem;
+        padding: 0px 30px;
         display: flex;
         flex-direction: column;
         /* aligns content to the left, set to center to centrally align */
