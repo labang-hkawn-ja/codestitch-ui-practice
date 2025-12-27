@@ -1,0 +1,177 @@
+:root {
+    --deep-ocean: #005f73;
+    --ocean-wave: #0077b6;
+    --sea-foam: #94d2bd;
+    --sea-back: #0077b6;
+    --sunset-orange: #ee9b00;
+    --coral: #ca6702;
+    --sand: #e9d8a6;
+    --white: #ffffff;
+    --light-bg: #f8f9fa;
+    --shadow-sm: 0 2px 8px rgba(0, 95, 115, 0.1);
+    --shadow-lg: 0 4px 12px rgba(0, 95, 115, 0.15);
+    --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    font-family: 'Playfair Display', serif;
+}
+
+/* Mobile - 360px */
+@media only screen and (min-width: 0rem) {
+    #meet-us-1021 {
+        padding: var(--sectionPadding);
+    }
+
+    #meet-us-1021 .cs-container {
+        width: 100%;
+        max-width: 80rem;
+        margin: auto;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        /* 48px - 64px */
+        gap: clamp(3rem, 6vw, 4rem);
+    }
+
+    #meet-us-1021 .cs-container {
+        width: 100%;
+        max-width: 80rem;
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        /* 48px - 64px */
+        gap: clamp(3rem, 6vw, 4rem);
+    }
+
+    #meet-us-1021 .cs-content {
+        /* set text align to left if content needs to be left aligned */
+        text-align: center;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        /* centers content horizontally, set to flex-start to left align */
+        align-items: center;
+    }
+
+    #meet-us-1021 .cs-graphic {
+        width: 100%;
+        max-width: 26.82352941rem;
+        margin: 0 0 1rem 0;
+        filter: brightness(0) invert(1);
+    }
+
+    #meet-us-1021 .cs-card-group {
+        width: 100%;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        /* 16px - 20px */
+        gap: clamp(1rem, 2vw, 1.25rem);
+    }
+
+    #meet-us-1021 .cs-item {
+        list-style: none;
+        width: 100%;
+        max-width: 25.8125rem;
+        position: relative;
+        align-items: center;
+        z-index: 1;
+    }
+
+    #meet-us-1021 .cs-item:hover .cs-picture {
+        background-color: var(--sea-back);
+    }
+
+    #meet-us-1021 .cs-item:hover .cs-picture img {
+        transform: scale(1.1);
+        opacity: 0.6;
+    }
+
+    #meet-us-1021 .cs-info {
+        width: 85.5%;
+        /* 16px - 24px */
+        padding: clamp(1rem, 2vw, 1.5rem);
+        margin: -3.75rem auto 0;
+        box-sizing: border-box;
+        background-color: var(--sea-back);
+        border-top: 4px solid #2595d2;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        z-index: 10;
+    }
+
+    #meet-us-1021 .cs-name {
+        /* 16px - 25px */
+        font-size: clamp(1rem, 2vw, 1.5625rem);
+        font-weight: 700;
+        line-height: 1.2em;
+        /* 4px - 8px */
+        margin: 0 0 clamp(0.25rem, 1vw, 0.5rem);
+        color: var(--light-bg);
+        display: block;
+        transition: color 0.3s;
+    }
+
+    #meet-us-1021 .cs-job {
+        /* 14px - 16px */
+        font-size: clamp(0.875rem, 1.5vw, 1rem);
+        line-height: 1.5em;
+        color: var(--light-bg);
+        opacity: 0.8;
+        display: block;
+    }
+
+    #meet-us-1021 .cs-picture {
+        width: 100%;
+        /* 246px - 500px */
+        height: clamp(15.375rem, 40vw, 32.25rem);
+        overflow: hidden;
+        display: block;
+        position: relative;
+        transition: background-color 0.3s;
+        z-index: -1;
+    }
+
+    #meet-us-1021 .cs-picture img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        /* makes it behave like a background imahe */
+        object-fit: cover;
+        /* makes the image position itself at the top of the parent */
+        object-position: top;
+        transition:
+            transform 0.6s,
+            opacity 0.3s;
+    }
+}
+
+/* Tablet - 768px */
+@media only screen and (min-width: 48rem) {
+    #meet-us-1021 .cs-card-group {
+        grid-template-columns: repeat(12, 1fr);
+        width: 100%;
+    }
+
+    #meet-us-1021 .cs-item {
+        grid-column: span 4;
+    }
+}

@@ -1,0 +1,285 @@
+:root {
+    --deep-ocean: #005f73;
+    --ocean-wave: #0077b6;
+    --sea-foam: #94d2bd;
+    --sea-back: #0077b6;
+    --sunset-orange: #ee9b00;
+    --coral: #ca6702;
+    --sand: #e9d8a6;
+    --white: #ffffff;
+    --light-bg: #f8f9fa;
+    --shadow-sm: 0 2px 8px rgba(0, 95, 115, 0.1);
+    --shadow-lg: 0 4px 12px rgba(0, 95, 115, 0.15);
+    --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    font-family: 'Playfair Display', serif;
+}
+
+/* Video background alternative */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: var(--sea-back); /* Fallback color */
+    overflow: hidden;
+}
+
+#video-bg {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    transform: translateX(-50%) translateY(-50%);
+    filter: blur(3px) brightness(1.2);
+    z-index: -1;
+}
+
+.species-page {
+    padding-top: 100px;
+}
+
+.species-header {
+    text-align: center;
+    border-bottom: 1px solid rgba(10, 147, 150, 0.1);
+}
+
+.species-header h1 {
+    color: var(--light-bg);
+}
+
+.species-header p {
+    color: var(--light-bg);
+}
+
+.sort-filter {
+    width: 180px;
+}
+
+.species-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+.species-card {
+    flex: 0 0 calc(25% - 1.5rem);
+    box-sizing: border-box;
+}
+
+.species-item {
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.species-item:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+.species-image {
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+}
+
+.species-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.species-item:hover .species-image img {
+    transform: scale(1.05);
+}
+
+.status-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 3px 10px;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: white;
+}
+
+.status-badge.least-concern {
+    background-color: #4CAF50;
+}
+
+.status-badge.vulnerable {
+    background-color: var(--sunset-orange);
+}
+
+.status-badge.endangered {
+    background-color: var(--coral);
+}
+
+.status-badge.critically-endangered {
+    background-color: #B71C1C;
+}
+
+.status-badge.data-deficient {
+    background-color: #9E9E9E;
+}
+
+.status-badge.common {
+    background-color: var(--ocean-wave);
+}
+
+.species-details {
+    padding: 15px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.species-details h3 {
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+    color: var(--deep-ocean);
+}
+
+.scientific-name {
+    font-style: italic;
+    color: var(--ocean-wave);
+    font-size: 0.85rem;
+    margin-bottom: 10px;
+}
+
+.species-meta {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    font-size: 0.85rem;
+}
+
+.species-meta span {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    color: var(--deep-ocean);
+}
+
+.species-actions {
+    margin-top: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+/* View Details Button */
+.btn-details {
+    display: inline-block;
+    padding: 8px 16px;
+    background-color: transparent;
+    color: var(--ocean-wave);
+    border: 2px solid var(--ocean-wave);
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    text-align: center;
+    flex-grow: 1;
+}
+
+.btn-details:hover {
+    background-color: var(--ocean-wave);
+    color: var(--white) !important;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(10, 147, 150, 0.2);
+}
+
+/* Favorite Button */
+.btn-favorite {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    border: 2px solid var(--coral);
+    border-radius: 50%;
+    color: var(--coral);
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 0;
+}
+
+.btn-favorite:hover {
+    background-color: var(--coral);
+    color: var(--white) !important;
+    transform: scale(1.1);
+}
+
+.btn-favorite .fas {
+    display: none;
+}
+
+.btn-favorite.active {
+    background-color: var(--coral);
+    color: white;
+}
+
+.btn-favorite.active .far {
+    display: none;
+}
+
+.btn-favorite.active .fas {
+    display: inline-block;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+    .species-card {
+        flex: 0 0 calc(33.333% - 1.5rem);
+    }
+}
+
+@media (max-width: 992px) {
+    .species-card {
+        flex: 0 0 calc(50% - 1.5rem);
+    }
+}
+
+@media (max-width: 768px) {
+    .species-header {
+        padding-top: 80px;
+    }
+
+    .species-image {
+        height: 160px;
+    }
+}
+
+@media (max-width: 576px) {
+    .species-card {
+        flex: 0 0 100%;
+    }
+}
